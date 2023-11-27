@@ -1,26 +1,33 @@
 import './style/App.css';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import TaskList from './componentes/TaskList';
 import TaskForm from './componentes/TaskForm';
 //import TaskItem from './componentes/TaskItem';
+const LOCALKEY = 'listApp.items';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const getPrevStore = async () => {
+    const getlocalStore = await JSON.parse(localStorage.getItem(LOCALKEY));
+    if (getlocalStore.length > 0) {
+      setTasks(getlocalStore);
+    }
+    else {
+      return;
+    }
+  };
+
+  useEffect(() => {
+    // Cargar desde localStorage al montar la aplicación
+    getPrevStore();
+  }, []);
 
   useEffect(() => {
     // Efecto de Actualización
     console.log('Tasks updated:', tasks);
     // Guardar en localStorage al actualizar las tareas
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem(LOCALKEY, JSON.stringify(tasks));
   }, [tasks]);
-
-  useEffect(() => {
-    // Cargar desde localStorage al montar la aplicación
-    const storedTasks = localStorage.getItem('tasks');
-    if (storedTasks) {
-      setTasks(JSON.parse(storedTasks));
-    }
-  }, []);
 
   const handleTaskComplete = (taskId, completed) => {
     setTasks(prevTasks =>
@@ -45,14 +52,14 @@ const App = () => {
 
   return (
     <div>
-      <h1>AMINISTRADOR DE TAREAS</h1>
+      <h1>ADMINISTRADOR DE TAREAS</h1>
       <TaskForm onTaskAdd={handleTaskAdd} />
       <TaskList
         tasks={tasks}
         onTaskComplete={handleTaskComplete}
         onTaskDelete={handleTaskDelete}
       />
-      
+
     </div>
   );
 };

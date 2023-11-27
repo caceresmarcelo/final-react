@@ -1,0 +1,26 @@
+
+.taskForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+  
+.inputForm {
+    width: 300px; 
+    padding: 10px;
+    margin-right: 10px; 
+}
+  
+.buttonForm {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+  
+.buttonForm:disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+}

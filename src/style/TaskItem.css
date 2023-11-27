@@ -1,0 +1,41 @@
+.taskItem {
+    margin-bottom: 10px;
+    margin: 0 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.taskItem span {
+    flex: 1;
+    font-weight: bold;
+}
+.taskItem span.completed {
+    text-decoration: line-through;
+    text-shadow: 0 0 5px #000;
+}  
+  
+.buttonComplete {
+    background-color: #4caf50;
+    color: white;
+    margin-left: 10px;
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonDelete{
+    background-color: #ff0000; 
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+}

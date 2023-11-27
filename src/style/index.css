@@ -1,0 +1,17 @@
+button{
+  max-height: max-content;
+}
+
+form{
+  text-size-adjust: 34px;
+  max-height: max-content;
+}
+
+body{
+  align-items: center;
+  text-align: center;
+}
+
+ul {
+  align-items: center;
+}

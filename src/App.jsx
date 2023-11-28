@@ -2,7 +2,7 @@ import './style/App.css';
 import { useState, useEffect } from 'react';
 import TaskList from './componentes/TaskList';
 import TaskForm from './componentes/TaskForm';
-//import TaskItem from './componentes/TaskItem';
+
 const LOCALKEY = 'listApp.items';
 
 const App = () => {
